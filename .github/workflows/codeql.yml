@@ -1,0 +1,30 @@
+# .github/workflows/codeql.yml
+#
+# This is the ENTIRE code-scanning setup for this repository.
+# All CodeQL policy (query suites, path filters) is owned centrally in
+# callmegreg-demo-org/codeql-central-config — this file just calls it.
+name: CodeQL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '30 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  codeql:
+    name: CodeQL (central config)
+    uses: callmegreg-demo-org/codeql-central-config/.github/workflows/codeql-reusable.yml@main
+    with:
+      language: javascript-typescript
+    # Passes the org secret CODEQL_CONFIG_TOKEN through so the reusable workflow
+    # can read the central (private) config file. Harmless if the secret is absent.
+    secrets: inherit
