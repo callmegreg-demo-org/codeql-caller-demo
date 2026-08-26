@@ -25,6 +25,7 @@ jobs:
     uses: callmegreg-demo-org/codeql-central-config/.github/workflows/codeql-reusable.yml@main
     with:
       language: javascript-typescript
-    # Passes the org secret CODEQL_CONFIG_TOKEN through so the reusable workflow
-    # can read the central (private) config file. Harmless if the secret is absent.
+    # Passes the org secrets (CODEQL_CONFIG_APP_ID / CODEQL_CONFIG_APP_PRIVATE_KEY)
+    # through, so the reusable workflow can mint a short-lived token to read the
+    # private central config. Harmless if those secrets are absent.
     secrets: inherit

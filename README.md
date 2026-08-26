@@ -26,6 +26,7 @@ Go to the **Actions** tab → **CodeQL** → **Run workflow**, or push a commit.
 
 ## Setup / prerequisites
 
-This repo is **private**, so it relies on three org/repo settings documented in the central repo:
-Actions reuse access, the `CODEQL_CONFIG_TOKEN` secret, and GitHub Advanced Security. See
+This repo is **private**, so it relies on a few org/repo settings documented in the central repo:
+Actions reuse access, the **`CODEQL_CONFIG_APP_ID` / `CODEQL_CONFIG_APP_PRIVATE_KEY`** org secrets
+(from a minimal-permission GitHub App), and GitHub Advanced Security. See
 **[codeql-central-config → Required configuration](https://github.com/callmegreg-demo-org/codeql-central-config#required-configuration-️)**.
